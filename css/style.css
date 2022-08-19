@@ -378,7 +378,7 @@
     display: block;
     width: 100%;
     padding: 10px;
-    text-align: center;
+    text-align: left;
   }
 }
 .course .container .form-courses .form-title {
@@ -481,9 +481,19 @@
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-.course .container .form-courses .select .select-input {
+.course .container .form-courses .select i {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-left: 8px;
+  color: #b61984;
+  text-align: left;
+}
+.course .container .form-courses .select .form-select {
   border: 1px solid #ccc;
   padding: 12px;
+  padding-left: 30px;
   border-radius: 30px;
   background-color: #ffffff;
   width: 100%;
@@ -497,45 +507,12 @@
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  text-align: left !important;
 }
-.course .container .form-courses .select .select-input .language-select .select-icon {
-  color: #b61984;
-}
-.course .container .form-courses .select .select-input .language-select span {
-  font-size: 13px;
-  font-weight: 400;
-  color: #181818;
-}
-.course .container .form-courses .select .select-input .select-down {
-  color: #b61984;
-}
-.course .container .form-courses .select .select-input .select-up {
-  display: none;
-  color: #b61984;
-}
-.course .container .form-courses .select .select-list {
-  display: none;
-  position: absolute;
-  background-color: #ffffff;
+.course .container .form-courses .select .form-select:focus {
   border: 1px solid #ccc;
-  top: 100%;
-  left: 0;
-  right: 0;
-  overflow: auto;
-  opacity: 0;
-  z-index: 100;
-  padding-left: 27px;
-}
-.course .container .form-courses .select .select-list .select-list__item {
-  list-style-type: none;
-  padding: 5px;
-  font-size: 13px;
-  font-weight: 400;
-  color: #181818;
-}
-.course .container .form-courses .select .select-list .select-list__item:hover {
-  color: #b61984;
-  cursor: pointer;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .course .container .form-courses .message {
   position: relative;
@@ -589,7 +566,7 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.footer .container .row {
+.footer .container .container-fluid .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -598,82 +575,85 @@
           justify-content: space-between;
 }
 @media only screen and (max-width: 768px) {
-  .footer .container .row {
+  .footer .container .container-fluid .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 }
 @media only screen and (max-width: 576px) {
-  .footer .container .row {
+  .footer .container .container-fluid .row {
     display: block;
     width: 100%;
   }
 }
-.footer .container .row .contact h4 {
+.footer .container .container-fluid .row .col-contact .contact h4 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 30px;
 }
-.footer .container .row .contact .location {
+.footer .container .container-fluid .row .col-contact .contact .location {
   font-size: 14px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom: 10px;
 }
-.footer .container .row .contact .location i {
+.footer .container .container-fluid .row .col-contact .contact .location i {
   margin-right: 5px;
 }
-.footer .container .row .contact .phone-number {
+.footer .container .container-fluid .row .col-contact .contact .phone-number {
   font-size: 14px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom: 10px;
   display: inline-block;
 }
-.footer .container .row .contact .phone-number i {
+.footer .container .container-fluid .row .col-contact .contact .phone-number i {
   margin-right: 5px;
 }
-.footer .container .row .contact .date {
+.footer .container .container-fluid .row .col-contact .contact .date {
   font-size: 14px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom: 20px;
 }
-.footer .container .row .contact .date i {
+.footer .container .container-fluid .row .col-contact .contact .date i {
   margin-right: 5px;
 }
-.footer .container .row .contact nav a {
+.footer .container .container-fluid .row .col-contact .contact nav a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
   color: #ffffff;
   margin-right: 8px;
 }
-.footer .container .row .contact nav a:hover {
+.footer .container .container-fluid .row .col-contact .contact nav a:hover {
   color: #181818;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 @media only screen and (max-width: 576px) {
-  .footer .container .row .contact {
+  .footer .container .container-fluid .row .col-contact .contact {
     display: block;
     width: 100%;
     margin-bottom: 20px;
   }
 }
-.footer .container .row .list-link h4 {
+.footer .container .container-fluid .row .col-item .list-link h4 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 30px;
 }
-.footer .container .row .list-link ul li {
+.footer .container .container-fluid .row .col-item .list-link ul {
+  padding: 0 !important;
+}
+.footer .container .container-fluid .row .col-item .list-link ul li {
   list-style-type: none;
   margin-top: 20px;
 }
-.footer .container .row .list-link ul li a {
+.footer .container .container-fluid .row .col-item .list-link ul li a {
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1019607843);
   text-decoration: none;
@@ -682,25 +662,26 @@
   color: #ffffff;
   margin-right: 8px;
 }
-.footer .container .row .list-link ul li a:hover {
+.footer .container .container-fluid .row .col-item .list-link ul li a:hover {
   color: #ccc;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 @media only screen and (max-width: 576px) {
-  .footer .container .row .list-link {
+  .footer .container .container-fluid .row .col-item .list-link {
     display: block;
     width: 100%;
     margin-bottom: 20px;
   }
 }
-.footer .container .row .sub h4 {
+.footer .container .container-fluid .row .col-sub .sub h4 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 50px;
 }
-.footer .container .row .sub input {
+.footer .container .container-fluid .row .col-sub .sub input {
+  width: 100%;
   text-align: center;
   color: #ffffff;
   display: block;
@@ -718,31 +699,31 @@
   background-color: transparent;
 }
 @media only screen and (max-width: 768px) {
-  .footer .container .row .sub input {
+  .footer .container .container-fluid .row .col-sub .sub input {
     width: 100%;
   }
 }
-.footer .container .row .sub input::-webkit-input-placeholder {
+.footer .container .container-fluid .row .col-sub .sub input::-webkit-input-placeholder {
   text-align: center;
   color: #ffffff;
 }
-.footer .container .row .sub input::-moz-placeholder {
+.footer .container .container-fluid .row .col-sub .sub input::-moz-placeholder {
   text-align: center;
   color: #ffffff;
 }
-.footer .container .row .sub input:-ms-input-placeholder {
+.footer .container .container-fluid .row .col-sub .sub input:-ms-input-placeholder {
   text-align: center;
   color: #ffffff;
 }
-.footer .container .row .sub input::-ms-input-placeholder {
+.footer .container .container-fluid .row .col-sub .sub input::-ms-input-placeholder {
   text-align: center;
   color: #ffffff;
 }
-.footer .container .row .sub input::placeholder {
+.footer .container .container-fluid .row .col-sub .sub input::placeholder {
   text-align: center;
   color: #ffffff;
 }
-.footer .container .row .sub .btn-sub {
+.footer .container .container-fluid .row .col-sub .sub .btn-sub {
   font-size: 14px;
   font-weight: 600;
   color: #181818;
@@ -757,7 +738,7 @@
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.footer .container .row .sub .btn-sub:hover {
+.footer .container .container-fluid .row .col-sub .sub .btn-sub:hover {
   color: #ffffff;
   border: none;
   background-color: #b61984;

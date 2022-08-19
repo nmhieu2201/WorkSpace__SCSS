@@ -17,6 +17,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Tabula</title>
   </head>
@@ -179,25 +185,17 @@
               <input type="text" class="email-input" placeholder="E-mail" />
             </div>
           </div>
+
           <div class="select">
-            <div
-              class="select-input"
-              id="language-select"
-            >
-              <div class="language-select">
-                <i class="fa-solid fa-graduation-cap select-icon"></i>
-                <span>English</span>
-              </div>
-              <i class="fa-solid fa-angle-down select-down"></i>
-              <i class="fa-solid fa-angle-up select-up"></i>
-            </div>
-            <ul class="select-list" id="select-list">
-              <li class="select-list__item">English</li>
-              <li class="select-list__item">French</li>
-              <li class="select-list__item">Spanish</li>
-              <li class="select-list__item">German</li>
-            </ul>
+            <i class="fa-solid fa-graduation-cap"></i>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>English</option>
+              <option value="2">French</option>
+              <option value="1">Spanish</option>
+              <option value="3">German</option>
+            </select>
           </div>
+
           <div class="message">
             <i class="fa-solid fa-message message-icon"></i>
             <textarea
@@ -216,54 +214,73 @@
     </section>
     <footer class="footer">
       <div class="container">
-        <div class="row">
-          <div class="contact">
-            <h4>Contact Us</h4>
-            <p class="location">
-              <i class="fa-solid fa-location-dot"></i>
-              Franklin St, Greenpoint Ave
-            </p>
-            <span class="phone-number">
-              <i class="fa-solid fa-phone-flip"></i>
-              +2342 5446 67
-            </span>
-            <p class="date">
-              <i class="fa-solid fa-clock"></i>
-              Monday - Friday: 8 AM - 5 PM
-            </p>
-            <nav>
-              <a href=""><i class="fa-brands fa-twitter"></i></a>
-              <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-              <a href=""><i class="fa-brands fa-youtube"></i></a>
-              <a href=""><i class="fa-brands fa-instagram"></i></a>
-            </nav>
-          </div>
-          <div class="list-link">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Schedule</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-          </div>
-          <div class="list-link">
-            <h4>About</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Get Quote</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="sub">
-            <h4>New letter</h4>
-            <input type="email" placeholder="Your email" id="email" required />
-            <button class="btn-sub">Subscribe</button>
+        <div class="container-fluid">
+          <div class="row d-flex justify-content-between">
+            <div class="col-xl-3 col-md-6 col-sm-12 col-12 col-contact">
+              <div class="contact">
+                <h4>Contact Us</h4>
+                <p class="location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  Franklin St, Greenpoint Ave
+                </p>
+                <span class="phone-number">
+                  <i class="fa-solid fa-phone-flip"></i>
+                  +2342 5446 67
+                </span>
+                <p class="date">
+                  <i class="fa-solid fa-clock"></i>
+                  Monday - Friday: 8 AM - 5 PM
+                </p>
+                <nav>
+                  <a href=""><i class="fa-brands fa-twitter"></i></a>
+                  <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href=""><i class="fa-brands fa-youtube"></i></a>
+                  <a href=""><i class="fa-brands fa-instagram"></i></a>
+                </nav>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12 col-12 col-item">
+              <div class="list-link">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Courses</a></li>
+                  <li><a href="#">Schedule</a></li>
+                  <li><a href="#">Blog</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12 col-12 col-item">
+              <div class="list-link">
+                <h4>About</h4>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Events</a></li>
+                  <li><a href="#">Get Quote</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-sm-12 col-12 col-sub">
+              <div class="sub">
+                <h4>New letter</h4>
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  id="email"
+                  required
+                />
+                <button class="btn-sub">Subscribe</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </footer>
-    <script src="./index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

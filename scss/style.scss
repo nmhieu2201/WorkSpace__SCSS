@@ -367,7 +367,7 @@
                 display: block;
                 width: 100%;
                 padding: 10px;
-                text-align: center;
+                text-align: left;
             }
 
             .form-title {
@@ -461,10 +461,18 @@
                 margin-bottom: 20px;
                 position: relative;
                 transition: all 0.5s;
-
-                .select-input {
+                i {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin-left: 8px;
+                    color: $text-color-secondary;
+                    text-align: left;
+                }
+                .form-select {
                     border: 1px solid #ccc;
                     padding: 12px;
+                    padding-left: 30px;
                     border-radius: 30px;
                     background-color: $bg-secondary;
                     width: 100%;
@@ -472,51 +480,11 @@
                     justify-content: space-between;
                     align-items: center;
                     cursor: pointer;
-
-                    .language-select {
-                        .select-icon {
-                            color: $text-color-secondary;
-                        }
-
-                        span {
-                            @include text ($text-fz-1, $text-fw-4, $text-color-primary);
-                        }
+                    text-align: left !important;
+                    &:focus {
+                        border: 1px solid #ccc;
+                        box-shadow: none;
                     }
-
-                    .select-down {
-                        color: $text-color-secondary;
-                    }
-
-                    .select-up {
-                        display: none;
-                        color: $text-color-secondary;
-                    }
-                }
-
-                .select-list {
-                    display: none;
-                    position: absolute;
-                    background-color: $bg-secondary;
-                    border: 1px solid #ccc;
-                    top: 100%;
-                    left: 0;
-                    right: 0;
-                    overflow: auto;
-                    opacity: 0;
-                    z-index: 100;
-                    padding-left: 27px;
-
-                    .select-list__item {
-                        list-style-type: none;
-                        padding: 5px;
-                        @include text ($text-fz-1, $text-fw-4, $text-color-primary);
-
-                        &:hover {
-                            color: $text-color-secondary;
-                            cursor: pointer;
-                        }
-                    }
-
 
                 }
 
@@ -572,145 +540,156 @@
     object-fit: cover;
 
     .container {
-        .row {
-            display: flex;
-            justify-content: space-between;
+        .container-fluid {
+            .row {
+                display: flex;
+                justify-content: space-between;
 
-            @include Responsive($SM) {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-
-            @include Responsive($XS) {
-                display: block;
-                width: 100%;
-            }
-
-            .contact {
-
-                h4 {
-                    @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
-                    margin-bottom: 30px;
-                }
-
-                .location {
-                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
-                    margin-bottom: 10px;
-
-                    i {
-                        margin-right: 5px;
-                    }
-                }
-
-                .phone-number {
-                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
-                    margin-bottom: 10px;
-                    display: inline-block;
-
-                    i {
-                        margin-right: 5px;
-                    }
-                }
-
-                .date {
-                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
-                    margin-bottom: 20px;
-
-                    i {
-                        margin-right: 5px;
-                    }
-
-                }
-
-                nav {
-                    a {
-                        text-decoration: none;
-                        @include text($text-fz-2, $text-fw-4, $text-color-3nd);
-                        margin-right: 8px;
-
-                        &:hover {
-                            color: $text-color-primary;
-                            transition: all 0.5s;
-                        }
-                    }
+                @include Responsive($SM) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 30px;
                 }
 
                 @include Responsive($XS) {
                     display: block;
                     width: 100%;
-                    margin-bottom: 20px;
-                }
-            }
-
-            .list-link {
-                h4 {
-                    @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
-                    margin-bottom: 30px;
                 }
 
-                ul {
-                    li {
-                        list-style-type: none;
-                        margin-top: 20px;
+                .col-contact {
+                    .contact {
 
-                        a {
-                            padding-bottom: 10px;
-                            border-bottom: 1px solid #0000001a;
-                            text-decoration: none;
+                        h4 {
+                            @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
+                            margin-bottom: 30px;
+                        }
+
+                        .location {
                             @include text($text-fz-2, $text-fw-4, $text-color-3nd);
-                            margin-right: 8px;
+                            margin-bottom: 10px;
 
-                            &:hover {
-                                color: #ccc;
-                                transition: all 0.5s;
+                            i {
+                                margin-right: 5px;
                             }
                         }
+
+                        .phone-number {
+                            @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                            margin-bottom: 10px;
+                            display: inline-block;
+
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .date {
+                            @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                            margin-bottom: 20px;
+
+                            i {
+                                margin-right: 5px;
+                            }
+
+                        }
+
+                        nav {
+                            a {
+                                text-decoration: none;
+                                @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                                margin-right: 8px;
+
+                                &:hover {
+                                    color: $text-color-primary;
+                                    transition: all 0.5s;
+                                }
+                            }
+                        }
+
+                        @include Responsive($XS) {
+                            display: block;
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
                     }
                 }
 
-                @include Responsive($XS) {
-                    display: block;
-                    width: 100%;
-                    margin-bottom: 20px;
-                }
-            }
+                .col-item {
+                    .list-link {
+                        h4 {
+                            @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
+                            margin-bottom: 30px;
+                        }
 
-            .sub {
-                h4 {
-                    @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
-                    margin-bottom: 50px;
-                }
+                        ul {
+                            padding: 0 !important;
 
-                input {
-                    text-align: center;
-                    color: $text-color-3nd;
-                    display: block;
-                    padding: 15px 30px;
-                    outline: none;
-                    display: flex;
-                    margin-bottom: 20px;
-                    justify-content: center;
-                    border-radius: 20px;
-                    border: 1px solid #ffffff1a;
-                    background-color: transparent;
+                            li {
+                                list-style-type: none;
+                                margin-top: 20px;
 
-                    @include Responsive($SM) {
-                        width: 100%;
+                                a {
+                                    padding-bottom: 10px;
+                                    border-bottom: 1px solid #0000001a;
+                                    text-decoration: none;
+                                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                                    margin-right: 8px;
+
+                                    &:hover {
+                                        color: #ccc;
+                                        transition: all 0.5s;
+                                    }
+                                }
+                            }
+                        }
+
+                        @include Responsive($XS) {
+                            display: block;
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
                     }
-
-                    &::placeholder {
-                        text-align: center;
-                        color: $text-color-3nd;
-                    }
                 }
 
-                .btn-sub {
-                    @include button($text-fz-2, $text-fw-6 , $text-color-primary , $bg-secondary , 10px 30px, none, 20px, $text-color-3nd, $bg-primary, none);
-                    width: 100%;
-                    text-transform: uppercase;
-                    border: none;
-                    transition: all 0.5s ease;
+                .col-sub {
+                    .sub {
+                        h4 {
+                            @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
+                            margin-bottom: 50px;
+                        }
+
+                        input {
+                            width: 100%;
+                            text-align: center;
+                            color: $text-color-3nd;
+                            display: block;
+                            padding: 15px 30px;
+                            outline: none;
+                            display: flex;
+                            margin-bottom: 20px;
+                            justify-content: center;
+                            border-radius: 20px;
+                            border: 1px solid #ffffff1a;
+                            background-color: transparent;
+
+                            @include Responsive($SM) {
+                                width: 100%;
+                            }
+
+                            &::placeholder {
+                                text-align: center;
+                                color: $text-color-3nd;
+                            }
+                        }
+
+                        .btn-sub {
+                            @include button($text-fz-2, $text-fw-6 , $text-color-primary , $bg-secondary , 10px 30px, none, 20px, $text-color-3nd, $bg-primary, none);
+                            width: 100%;
+                            text-transform: uppercase;
+                            border: none;
+                            transition: all 0.5s ease;
+                        }
+                    }
                 }
             }
         }
