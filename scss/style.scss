@@ -1,0 +1,718 @@
+@import './helpers/variable';
+@import './helpers/mixin';
+@import './base/reset';
+@import './layout/header';
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: $bg-secondary;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    z-index: 9999;
+    transition: all 0.5s;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+
+            @include Responsive($MD) {
+                display: flex;
+                align-items: center;
+                font-size: 40px;
+            }
+
+            .toggle {
+                display: none;
+
+                @include Responsive($MD) {
+                    display: block;
+
+                }
+            }
+
+            width: 25%;
+
+            img {
+                width: 80px;
+            }
+        }
+
+        .menu {
+            width: 75%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include Responsive($MD) {
+                display: none;
+            }
+
+        }
+
+        .navbar {
+            a {
+                position: relative;
+                margin-right: 50px;
+                text-decoration: none;
+                @include text ($text-fz-1, $text-fw-6, $text-color-primary);
+
+                &:hover {
+
+                    color: $text-color-secondary;
+                    transition: 0.5s ease-in-out;
+
+                    &::before {
+                        transform: scale(1.1);
+                        transition: all 0.5s;
+                        opacity: 1;
+                    }
+                }
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    border: none;
+                    border-radius: 50%;
+                    background-color: $bg-primary;
+                    top: 45px;
+                    left: 15px;
+                    transition: all 0.5s;
+                    opacity: 0;
+                }
+            }
+
+            .active {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .phone {
+                margin-right: 20px;
+                @include button($text-fz-2, $text-fw-6 , $text-color-3nd , $bg-primary , 10px 20px, 1px solid #ffffff, 20px, $text-color-secondary, $bg-secondary, 1px solid #b61984);
+                transition: all 0.3s ease;
+
+                i {
+                    margin-right: 3px;
+                }
+            }
+
+            .list-link {
+                a {
+                    margin-left: 12px;
+                    font-size: $text-fz-1;
+                    color: $text-color-primary;
+
+                    &:hover {
+                        color: $text-color-secondary;
+                        transition: all 0.3s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// @media screen and (min-height: 1200px) {
+//     .header {
+//         background: #fff;
+//         transition: all 0.5s;
+
+//         .container {
+//             padding: 4px 0px;
+//             justify-content: flex-end;
+
+//             .logo {
+//                 display: none;
+//             }
+
+//         }
+//     }
+// }
+
+
+
+.carousel {
+    padding: 50px 0;
+    background-image: url('../img/Violet_top_left_wave.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-image: url('../img/yellow_top_wave_01.png');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include Responsive($SM) {
+            padding: 50px;
+            display: block;
+        }
+
+        .about {
+            width: 50%;
+
+            @include Responsive($SM) {
+                width: 100%;
+            }
+
+            .title {
+                @include text ($text-fz-2xl, $text-fw-6, $text-color-secondary);
+
+            }
+
+            span {
+                @include text ($text-fz-6xl, $text-fw-7, $text-color-primary);
+            }
+
+
+        }
+
+        .img {
+            width: 50%;
+
+            @include Responsive($SM) {
+                width: 100%;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+
+    }
+}
+
+.team {
+    padding: 50px 0;
+    position: relative;
+    display: block;
+    background-image: url('../img/Wave_White_bottom_right_shape_01.png');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    .container {
+        .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            overflow: hidden;
+
+            @include Responsive($SM) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                overflow: hidden;
+            }
+
+            @include Responsive($XS) {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .teacher {
+                border-radius: 5px;
+                position: relative;
+                transition: all 0.5s;
+
+                // z-index: 100;
+                @include Responsive($SM) {
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                }
+
+                @include Responsive($XS) {
+                    display: block;
+                    padding: 20px;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                }
+
+                .img {
+                    display: block;
+                    overflow: hidden;
+
+                    img {
+                        display: block;
+
+                        width: 100%;
+                        border-radius: 5px 5px 0 0;
+                        overflow: visible;
+                        transition: all 0.5s;
+
+
+                    }
+
+                    &:hover {
+                        img {
+                            transform: scale(1.1);
+                            transition: all 0.5s;
+
+                        }
+                    }
+                }
+
+
+
+                .info {
+                    padding: 15px;
+                    text-align: center;
+                    background-color: $bg-secondary;
+
+                    .national {
+                        @include text ($text-fz-1, $text-fw-4, $text-color-secondary);
+                        text-transform: uppercase;
+                        margin-bottom: 5px;
+                    }
+
+                    .name {
+                        @include text ($text-fz-2xl, $text-fw-6, $text-color-primary);
+                        margin-bottom: 8px;
+                    }
+
+                    .des {
+                        @include text ($text-fz-1, $text-fw-4, $text-color-primary);
+                    }
+
+
+                }
+
+                &:hover {
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                    transition: all 0.5s ease-in-out;
+
+
+
+                }
+            }
+        }
+    }
+}
+
+.course {
+    padding-top: 50px;
+    position: relative;
+    display: block;
+    z-index: 999;
+    overflow: hidden;
+
+    &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 12px;
+        left: 0;
+        background-image: url('../img/accent_bottom_wave_01.png');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: auto;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+
+        @include Responsive($SM) {
+            display: block;
+        }
+
+        .img {
+            img {
+                width: 100%;
+            }
+        }
+
+        .form-courses {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            z-index: 998;
+            overflow: hidden;
+
+            @include Responsive($SM) {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .form-title {
+                @include text ($text-fz-4xl, $text-fw-7, $text-color-primary);
+                margin-bottom: 30px;
+            }
+
+            .name-email {
+                display: flex;
+                margin-bottom: 20px;
+
+                @include Responsive($SM) {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                .name {
+                    position: relative;
+                    margin-right: 15px;
+
+                    @include Responsive($SM) {
+                        width: 100%;
+                        border-radius: 50px;
+                        margin-bottom: 20px;
+                        border: none;
+                    }
+
+                    .name-icon {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        padding: 0 10px;
+                        color: $text-color-secondary;
+                    }
+
+                    .name-input {
+                        outline: none;
+                        padding: 15px 0 15px 30px;
+                        border-radius: 20px;
+                        border: 1px solid #ccc;
+                        flex: 1;
+
+                        @include Responsive($SM) {
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                        }
+                    }
+                }
+
+                .email {
+                    position: relative;
+
+                    @include Responsive($SM) {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 20px;
+                        border-radius: 50px;
+                        overflow: hidden;
+                        border: 1px solid #ccc;
+                    }
+
+                    .email-icon {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        padding-left: 10px;
+                        color: $text-color-secondary;
+                    }
+
+                    .email-input {
+                        flex: 1;
+                        padding: 15px 0 15px 30px;
+                        border-radius: 20px;
+                        border: none;
+                        outline: 1px solid #ccc;
+
+                        @include Responsive($SM) {
+                            width: 100%;
+                            border-radius: 20px;
+                            outline: none;
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+            .select {
+                width: 100%;
+                margin-bottom: 20px;
+                position: relative;
+                transition: all 0.5s;
+
+                .select-input {
+                    border: 1px solid #ccc;
+                    padding: 12px;
+                    border-radius: 30px;
+                    background-color: $bg-secondary;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .language-select {
+                        .select-icon {
+                            color: $text-color-secondary;
+                        }
+
+                        span {
+                            @include text ($text-fz-1, $text-fw-4, $text-color-primary);
+                        }
+                    }
+
+                    .select-down {
+                        color: $text-color-secondary;
+                    }
+
+                    .select-up {
+                        display: none;
+                        color: $text-color-secondary;
+                    }
+                }
+
+                .select-list {
+                    display: none;
+                    position: absolute;
+                    background-color: $bg-secondary;
+                    border: 1px solid #ccc;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    overflow: auto;
+                    opacity: 0;
+                    z-index: 100;
+                    padding-left: 27px;
+
+                    .select-list__item {
+                        list-style-type: none;
+                        padding: 5px;
+                        @include text ($text-fz-1, $text-fw-4, $text-color-primary);
+
+                        &:hover {
+                            color: $text-color-secondary;
+                            cursor: pointer;
+                        }
+                    }
+
+
+                }
+
+            }
+
+            .message {
+                position: relative;
+                margin-bottom: 20px;
+
+                .message-icon {
+                    position: absolute;
+                    top: 24%;
+                    padding-left: 10px;
+                    color: $text-color-secondary;
+                }
+
+                textarea {
+                    padding: 20px 20px 20px 30px;
+                    width: 100%;
+                    border-radius: 20px;
+                    outline: 1px solid #eaeaea;
+                    border: none;
+
+                }
+            }
+
+            .btn-send {
+                padding-bottom: 30px;
+
+                .send {
+                    @include button($text-fz-2, $text-fw-6 , $text-color-3nd , $bg-primary , 10px 30px, 1px solid #ffffff, 20px, $text-color-secondary, $bg-secondary, 1px solid #b61984);
+                    text-transform: uppercase;
+                    transition: all 0.5s ease;
+                }
+            }
+
+        }
+
+
+    }
+}
+
+.footer {
+    padding: 50px 0 300px;
+    background: url('../img/footer_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    .container {
+        .row {
+            display: flex;
+            justify-content: space-between;
+
+            @include Responsive($SM) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            @include Responsive($XS) {
+                display: block;
+                width: 100%;
+            }
+
+            .contact {
+
+                h4 {
+                    @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
+                    margin-bottom: 30px;
+                }
+
+                .location {
+                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                    margin-bottom: 10px;
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+
+                .phone-number {
+                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                    margin-bottom: 10px;
+                    display: inline-block;
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+
+                .date {
+                    @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                    margin-bottom: 20px;
+
+                    i {
+                        margin-right: 5px;
+                    }
+
+                }
+
+                nav {
+                    a {
+                        text-decoration: none;
+                        @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                        margin-right: 8px;
+
+                        &:hover {
+                            color: $text-color-primary;
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+
+                @include Responsive($XS) {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .list-link {
+                h4 {
+                    @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
+                    margin-bottom: 30px;
+                }
+
+                ul {
+                    li {
+                        list-style-type: none;
+                        margin-top: 20px;
+
+                        a {
+                            padding-bottom: 10px;
+                            border-bottom: 1px solid #0000001a;
+                            text-decoration: none;
+                            @include text($text-fz-2, $text-fw-4, $text-color-3nd);
+                            margin-right: 8px;
+
+                            &:hover {
+                                color: #ccc;
+                                transition: all 0.5s;
+                            }
+                        }
+                    }
+                }
+
+                @include Responsive($XS) {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .sub {
+                h4 {
+                    @include text($text-fz-2xl, $text-fw-6, $text-color-3nd);
+                    margin-bottom: 50px;
+                }
+
+                input {
+                    text-align: center;
+                    color: $text-color-3nd;
+                    display: block;
+                    padding: 15px 30px;
+                    outline: none;
+                    display: flex;
+                    margin-bottom: 20px;
+                    justify-content: center;
+                    border-radius: 20px;
+                    border: 1px solid #ffffff1a;
+                    background-color: transparent;
+
+                    @include Responsive($SM) {
+                        width: 100%;
+                    }
+
+                    &::placeholder {
+                        text-align: center;
+                        color: $text-color-3nd;
+                    }
+                }
+
+                .btn-sub {
+                    @include button($text-fz-2, $text-fw-6 , $text-color-primary , $bg-secondary , 10px 30px, none, 20px, $text-color-3nd, $bg-primary, none);
+                    width: 100%;
+                    text-transform: uppercase;
+                    border: none;
+                    transition: all 0.5s ease;
+                }
+            }
+        }
+    }
+}

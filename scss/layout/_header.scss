@@ -1,0 +1,84 @@
+@import '../helpers/mixin';
+@import '../helpers/variable';
+// .header {
+//     position: fixed;
+//     z-index: 1000;
+//     width: 100%;
+//     // background-image: url( '../../img/yellow_top_wave_01.png');
+//     // background-position: top center;
+//     // background-repeat: no-repeat;
+//     // background-size: auto;
+//     // overflow: hidden;
+//     .container {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         .logo {
+//             width: 25%;
+
+//             img {
+//                 width: 80px;
+//             }
+//         }
+
+//         .menu {
+//             width: 75%;
+//             display: flex;
+//             justify-content: space-between;
+//             align-items: center;
+
+//             .navbar {
+//                 a {
+//                     position: relative;
+//                     margin-right: 50px;
+//                     text-decoration: none;
+//                     @include text ($text-fz-1, $text-fw-6, $text-color-primary);
+//                     &:hover {
+//                         color: $text-color-secondary;
+//                         transition: 0.5s ease-in-out;
+//                         &::before {
+//                             position: absolute;
+//                             content: "";
+//                             width: 10px;
+//                             height: 10px;
+//                             border: none;
+//                             border-radius: 50%;
+//                             background-color: $bg-primary;
+//                             top: 45px;
+//                             left: 15px;
+//                         }
+//                     }
+//                 }
+//             }
+
+//             .link {
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: space-between;
+
+//                 .phone {
+//                     margin-right: 20px;
+//                     @include button($text-fz-2, $text-fw-6 , $text-color-3nd , $bg-primary , 10px 20px, 1px solid #ffffff, 20px, $text-color-secondary, $bg-secondary, 1px solid #b61984);
+//                     transition: all 0.3s ease;
+
+//                     i {
+//                         margin-right: 3px;
+//                     }
+//                 }
+
+//                 .list-link {
+//                     a {
+//                         margin-left: 12px;
+//                         font-size: $text-fz-1;
+//                         color: $text-color-primary;
+
+//                         &:hover {
+//                             color: $text-color-secondary;
+//                             transition: all 0.3s;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
